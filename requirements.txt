@@ -3,3 +3,4 @@ requests
 schedule
 BeautifulSoup4
 lxml
+html5lib
