@@ -1,1 +1,1 @@
-bot: python3.6 chat.py
+bot: python3.6 bot.py
