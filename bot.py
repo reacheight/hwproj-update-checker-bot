@@ -30,8 +30,8 @@ def get_updates():
     else:
         bot.send_message(config.my_id, "no updates")
 
-
 schedule.every().hour.do(get_updates)
 while True:
     schedule.run_pending()
+    get_updates()
     time.sleep(1)
