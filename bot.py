@@ -31,7 +31,7 @@ def get_updates():
         bot.send_message(config.my_id, "no updates")
 
 
-schedule.every(5).minutes.do(get_updates)
+schedule.every().minute.do(get_updates)
 while True:
     schedule.run_pending()
     time.sleep(1)
