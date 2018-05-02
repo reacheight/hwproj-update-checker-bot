@@ -27,11 +27,9 @@ def get_updates():
         bot.send_message(config.my_id, f"UPDATES:\n"
                                        f"{accepted}  новых принятых задач.\n"
                                        f"{unaccepted} новых непринятых задач.")
-    else:
-        bot.send_message(config.my_id, "no updates")
 
 
-schedule.every().minute.do(get_updates)
+schedule.every(2).hours.do(get_updates)
 while True:
     schedule.run_pending()
     time.sleep(1)
