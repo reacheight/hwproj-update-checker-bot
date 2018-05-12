@@ -3,16 +3,14 @@ import scraper
 import requests
 import schedule
 import time
+import db_manager
 import config
-
-current_accepted = 0
-current_unaccepted = 0
 
 bot = telebot.TeleBot(config.token)
 
 
 def get_updates():
-    global current_accepted, current_unaccepted
+    current_accepted, current_unaccepted = [int(count) for count in db_manager.get_current_count()]
 
     try:
         new_accepted, new_unaccepted = scraper.task_count()
@@ -27,7 +25,7 @@ def get_updates():
                                        f"{accepted}  новых принятых задач.\n"
                                        f"{unaccepted} новых непринятых задач.")
 
-    current_accepted, current_unaccepted = new_accepted, new_unaccepted
+    db_manager.set_current_count(new_accepted, new_unaccepted)
 
 
 schedule.every(2).hours.do(get_updates)
