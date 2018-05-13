@@ -5,7 +5,7 @@ db = redis.from_url(config.redis_url)
 
 
 def get_current_count():
-    return db.get('accepted'), db.get('unaccepted')
+    return db['accepted'], db['unaccepted']
 
 
 def set_current_count(new_accepted, new_unaccepted):

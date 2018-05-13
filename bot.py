@@ -10,7 +10,11 @@ bot = telebot.TeleBot(config.token)
 
 
 def get_updates():
-    current_accepted, current_unaccepted = [int(count) for count in db_manager.get_current_count()]
+    try:
+        current_accepted, current_unaccepted = [int(count) for count in db_manager.get_current_count()]
+    except KeyError:
+        bot.send_message(config.my_id, 'database error occurred')
+        return
 
     try:
         new_accepted, new_unaccepted = scraper.task_count()
