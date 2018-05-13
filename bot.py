@@ -28,7 +28,7 @@ def get_updates():
     db_manager.set_current_count(new_accepted, new_unaccepted)
 
 
-schedule.every(2).hours.do(get_updates)
+schedule.every(3).hours.do(get_updates)
 while True:
     schedule.run_pending()
     time.sleep(1)
