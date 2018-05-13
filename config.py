@@ -6,6 +6,7 @@ redis_url = os.environ.get('REDIS_URL')
 
 my_name = 'Мендалиев Роман'
 course_url = 'http://hwproj.me/courses/31'
+logs_channel = '@hwporj_checker_logs'
 
 accepted_db_key = 'accepted'
 unaccepted_db_key = 'unaccepted'
