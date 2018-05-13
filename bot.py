@@ -13,13 +13,13 @@ def get_updates():
     try:
         current_accepted, current_unaccepted = [int(count) for count in db_manager.get_current_count()]
     except KeyError:
-        bot.send_message(config.my_id, 'database error occurred')
+        bot.send_message(config.my_id, config.database_error_message)
         return
 
     try:
         new_accepted, new_unaccepted = scraper.task_count()
     except requests.RequestException:
-        bot.send_message(config.my_id, 'request error occurred')
+        bot.send_message(config.my_id, config.request_error_message)
         return
 
     accepted = new_accepted - current_accepted
@@ -32,7 +32,7 @@ def get_updates():
     db_manager.set_current_count(new_accepted, new_unaccepted)
 
 
-schedule.every(3).hours.do(get_updates)
+schedule.every(config.checking_period).hours.do(get_updates)
 while True:
     schedule.run_pending()
     time.sleep(1)

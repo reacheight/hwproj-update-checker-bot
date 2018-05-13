@@ -7,7 +7,7 @@ def task_count():
     accepted_count = 0
     unaccepted_count = 0
 
-    response = requests.get(config.url)
+    response = requests.get(config.course_url)
     response.raise_for_status()
     page = BeautifulSoup(response.content, 'html5lib')
 
