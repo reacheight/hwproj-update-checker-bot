@@ -26,9 +26,9 @@ def get_updates():
     accepted = new_accepted - current_accepted
     unaccepted = new_unaccepted - current_unaccepted
     if accepted != 0 or unaccepted != 0:
-        bot.send_message(config.my_id, f"UPDATES:\n"
-                                       f"{accepted}  новых принятых задач.\n"
-                                       f"{unaccepted} новых непринятых задач.")
+        bot.send_message(config.my_id, f'UPDATES:\n'
+                                       f'{accepted}  новых принятых задач.\n'
+                                       f'{unaccepted} новых непринятых задач.')
         logger.add_log('updates')
         db_manager.set_current_count(new_accepted, new_unaccepted)
     else:
