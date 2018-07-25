@@ -9,7 +9,7 @@ def task_count():
 
     response = requests.get(config.course_url)
     response.raise_for_status()
-    page = BeautifulSoup(response.content, 'html5lib')
+    page = BeautifulSoup(response.content, 'lxml')
 
     table = page.find('table', {'class': 'table table-bordered table-condensed'}).find_all('tr')
     for tr_tag in table:
