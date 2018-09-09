@@ -4,7 +4,7 @@ my_id = int(os.environ.get('MY_ID'))
 token = os.environ.get('BOT_TOKEN')
 redis_url = os.environ.get('REDIS_URL')
 
-my_name = 'Мендалиев Роман'
+my_name = os.environ.get('MY_NAME')
 course_url = 'http://hwproj.me/courses/31'
 logs_channel = '@hwporj_checker_logs'
 
