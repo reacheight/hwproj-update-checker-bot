@@ -14,4 +14,4 @@ unaccepted_db_key = 'unaccepted'
 database_error_message = 'database error occurred'
 request_error_message = 'request error occurred'
 
-checking_period = 3
+checking_period = 6
